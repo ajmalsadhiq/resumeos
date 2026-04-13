@@ -200,9 +200,9 @@ export function UpdateWindow() {
         {stage !== 'complete' && (
           <div className="mt-12 p-6 bg-white/60 backdrop-blur-sm rounded-lg border border-gray-200">
             <p className="text-sm text-gray-700 text-center italic">
-              {stage === 'checking' && "💡 Did you know? Regular updates keep your system secure and running smoothly!"}
-              {stage === 'downloading' && "💡 Pro tip: Updates include performance improvements and new features!"}
-              {stage === 'installing' && "💡 Fun fact: System updates can make your computer faster and more stable!"}
+              {stage === 'checking' && "💡Did you know? Regular updates keep your system secure and running smoothly!"}
+              {stage === 'downloading' && "💡 Pro tip: Check the Projects window to see Ajmal's latest work!"}
+              {stage === 'installing' && "💡 Did you know? Ajmal is currently open to internship opportunities!"}
             </p>
           </div>
         )}

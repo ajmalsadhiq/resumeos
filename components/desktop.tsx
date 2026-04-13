@@ -15,7 +15,7 @@ import { SkillsWindow } from './windows/skills-window'
 import { EducationWindow } from './windows/education-window'
 import { ContactWindow } from './windows/contact-window'
 import { FileText, Package, Calculator, Video, HelpCircle, LogIn, Briefcase, Trash2, RefreshCw, Terminal, User, Code2, Award, Mail, Rocket, Search, X } from 'lucide-react'
-
+import { GithubWindow } from './windows/github-window'
 interface OpenWindow {
   id: string
   title: string
@@ -54,9 +54,7 @@ export function Desktop() {
   ]
 
   const rightIcons = [
-    { id: 'github', label: 'GitHub', icon: Rocket, component: <a href="https://github.com/ajmalsadhiq" target="_blank" rel="noopener noreferrer"><div className="p-6 text-center"><h2 className="text-2xl font-bold text-black mb-4">GitHub Profile</h2><p className="text-gray-700 mb-6">Visit my GitHub to explore all my projects and contributions</p><button className="px-6 py-2 bg-black text-white rounded-lg hover:bg-gray-900 transition-all">Open GitHub</button></div></a> },
-    { id: 'terminal', label: 'Terminal', icon: Terminal, component: <div className="p-6 bg-white"><h2 className="text-2xl font-bold text-black mb-4">Terminal</h2><p className="text-gray-700 mb-2">System information and command access for managing this portfolio OS.</p><div className="mt-6 p-4 border border-gray-300 rounded-lg bg-gray-50"><p className="text-sm text-gray-600 font-mono">$ Portfolio OS v1.0</p><p className="text-sm text-gray-600 font-mono">$ Welcome to Ajmal's Resume System</p></div></div> },
-    { id: 'update', label: 'Update OS', icon: RefreshCw, component: <div className="p-6 bg-white"><h2 className="text-2xl font-bold text-black mb-4">Update OS</h2><p className="text-gray-700 mb-6">Manage portfolio OS updates and version information.</p><div className="space-y-3"><div className="p-4 border border-gray-300 rounded-lg bg-gray-50"><p className="font-semibold text-black">Current Version: 1.0</p><p className="text-sm text-gray-600">Latest version available</p></div><button className="w-full px-4 py-2 bg-black text-white rounded-lg hover:bg-gray-900 transition-all">Check for Updates</button></div></div> },
+    { id: 'github', label: 'GitHub', icon: Rocket, component: <GithubWindow /> },    { id: 'terminal', label: 'Terminal', icon: Terminal, component: <TerminalWindow onBackgroundChange={handleBackgroundChange} /> },   { id: 'update', label: 'Update OS', icon: RefreshCw, component: <UpdateWindow /> },
     { id: 'trash', label: 'Trash', icon: Trash2, component: <div className="p-6 bg-white"><h2 className="text-2xl font-bold text-black mb-4">Trash</h2><p className="text-gray-700 mb-6">Recycle bin for deleted files and data. Currently empty.</p><div className="flex flex-col items-center justify-center p-8 border border-gray-300 rounded-lg bg-gray-50"><Trash2 className="w-16 h-16 text-gray-400 mb-4" /><p className="text-gray-600 text-center">No items in trash</p></div></div> },
   ]
 
@@ -131,7 +129,7 @@ export function Desktop() {
       <div className="fixed inset-0 overflow-hidden transition-colors duration-500" style={{
         backgroundColor: '#0f172a',
         backgroundImage: 'url(/wallpaper.jpg)',
-        backgroundSize: 'cover',
+        backgroundSize: '100% 100%',
         backgroundPosition: 'center',
         backgroundAttachment: 'fixed'
       }}>

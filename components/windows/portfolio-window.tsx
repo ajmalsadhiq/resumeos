@@ -67,28 +67,28 @@ export function PortfolioWindow() {
             <div className="grid grid-cols-2 gap-4">
               <div className="p-4 rounded-xl border border-gray-100 dark:border-zinc-855 bg-gray-50/50 dark:bg-zinc-950/20 hover:scale-[1.02] transition-all">
                 <div className="flex items-center gap-2 mb-2 text-gray-500 dark:text-gray-400">
-                  <MapPin className="w-4 h-4 text-blue-500" />
+                  <MapPin className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">Location</span>
                 </div>
                 <p className="text-gray-900 dark:text-white font-bold text-sm">VIT Vellore / India</p>
               </div>
               <div className="p-4 rounded-xl border border-gray-100 dark:border-zinc-855 bg-gray-50/50 dark:bg-zinc-950/20 hover:scale-[1.02] transition-all">
                 <div className="flex items-center gap-2 mb-2 text-gray-500 dark:text-gray-400">
-                  <Briefcase className="w-4 h-4 text-purple-500" />
+                  <Briefcase className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">Experience</span>
                 </div>
                 <p className="text-gray-900 dark:text-white font-bold text-sm">Full-Stack Development</p>
               </div>
               <div className="p-4 rounded-xl border border-gray-100 dark:border-zinc-855 bg-gray-50/50 dark:bg-zinc-950/20 hover:scale-[1.02] transition-all">
                 <div className="flex items-center gap-2 mb-2 text-gray-500 dark:text-gray-400">
-                  <Code2 className="w-4 h-4 text-pink-500" />
+                  <Code2 className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">Focus Areas</span>
                 </div>
                 <p className="text-gray-950 dark:text-white font-bold text-sm">Web Apps & AI Pipelines</p>
               </div>
               <div className="p-4 rounded-xl border border-gray-100 dark:border-zinc-855 bg-gray-50/50 dark:bg-zinc-950/20 hover:scale-[1.02] transition-all">
                 <div className="flex items-center gap-2 mb-2 text-gray-500 dark:text-gray-400">
-                  <Calendar className="w-4 h-4 text-orange-500" />
+                  <Calendar className="w-4 h-4" />
                   <span className="text-xs font-bold uppercase tracking-wider">Coding Since</span>
                 </div>
                 <p className="text-gray-900 dark:text-white font-bold text-sm">2021 (5 Years)</p>

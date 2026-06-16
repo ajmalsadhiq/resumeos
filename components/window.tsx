@@ -111,7 +111,7 @@ export function Window({
   return (
     <div
       ref={windowRef}
-      className={`absolute bg-white rounded-lg border overflow-hidden flex flex-col animate-scale-in transition-all duration-200 ${
+      className={`absolute bg-white rounded-lg border overflow-hidden flex flex-col animate-scale-in transition-colors transition-shadow transition-opacity duration-200 ${
         isActive 
           ? 'border-gray-300 shadow-2xl ring-1 ring-black/5' 
           : 'border-gray-200/80 shadow-lg opacity-98'

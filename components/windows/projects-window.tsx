@@ -72,7 +72,7 @@ const projects: Project[] = [
     color: "from-teal-600 to-blue-600",
     github: "https://github.com/ajmalsadhiq/RAG-Chatbot-with-n8n-Gemini-Qdrant",
     image: "/projects/rag-chatbot.png",
-    deployed: "https://github.com/ajmalsadhiq/RAG-Chatbot-with-n8n-Gemini-Qdrant"
+    deployed: ""
   },
   {
     id: 7,
@@ -92,7 +92,7 @@ const projects: Project[] = [
     color: "from-indigo-600 to-green-600",
     github: "https://github.com/ajmalsadhiq/handgesture-control-mouse",
     image: "/projects/handgesture.png",
-    deployed: "https://github.com/ajmalsadhiq/handgesture-control-mouse"
+    deployed: ""
   },
   {
     id: 9,
@@ -102,7 +102,7 @@ const projects: Project[] = [
     color: "from-yellow-500 to-amber-700",
     github: "https://github.com/ajmalsadhiq/energy_wastage_detector",
     image: "/projects/energy-wastage.png",
-    deployed: "https://github.com/ajmalsadhiq/energy_wastage_detector"
+    deployed: ""
   },
   {
     id: 10,
@@ -178,14 +178,16 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
           >
             GitHub
           </a>
-          <a
-            href={project.deployed}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex-1 px-4 py-2 bg-gray-300 text-black text-sm font-semibold rounded hover:shadow-lg hover:bg-gray-400 transition-all hover:scale-105 text-center"
-          >
-            Live Demo
-          </a>
+          {project.deployed && (
+            <a
+              href={project.deployed}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex-1 px-4 py-2 bg-gray-300 text-black text-sm font-semibold rounded hover:shadow-lg hover:bg-gray-400 transition-all hover:scale-105 text-center"
+            >
+              Live Demo
+            </a>
+          )}
         </div>
       </div>
     </div>

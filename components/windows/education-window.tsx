@@ -7,7 +7,7 @@ const educationData = [
     title: "B.Tech in Computer Science & Engineering",
     institution: "Vellore Institute of Technology (VIT), Vellore",
     duration: "2022 - 2026",
-    details: "Core CSE track | CGPA: 8.18",
+    details: "Core CSE track | CGPA: 8.38",
     icon: "🎓"
   },
   {

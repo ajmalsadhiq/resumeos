@@ -14,7 +14,7 @@ interface TerminalProps {
 const INFO = {
   name: 'Ajmal Sadhiq',
   role: 'B.Tech CSE @ VIT Vellore',
-  cgpa: '8.18',
+  cgpa: '8.38',
   email: 'ajmalsadhiq7@gmail.com',
   github: 'github.com/ajmalsadhiq',
   linkedin: 'linkedin.com/in/ajmal-sadhiq-puthanpura-ebrahim-012ab0291',
@@ -81,10 +81,12 @@ export function TerminalWindow({ onBackgroundChange }: TerminalProps) {
   const [cmdHistory, setCmdHistory] = useState<string[]>([])
   const [histIdx, setHistIdx] = useState(-1)
   const inputRef = useRef<HTMLInputElement>(null)
-  const bottomRef = useRef<HTMLDivElement>(null)
+  const scrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
-    bottomRef.current?.scrollIntoView({ behavior: 'smooth' })
+    if (scrollRef.current) {
+      scrollRef.current.scrollTop = scrollRef.current.scrollHeight
+    }
   }, [lines])
 
   const push = (...newLines: Line[]) =>
@@ -140,7 +142,7 @@ export function TerminalWindow({ onBackgroundChange }: TerminalProps) {
       </div>
 
       {/* Output + Input together in one scrollable area */}
-      <div className="flex-1 overflow-y-auto p-4">
+      <div className="flex-1 overflow-y-auto p-4" ref={scrollRef}>
         {lines.map((line, i) => (
           <div
             key={i}
@@ -166,8 +168,6 @@ export function TerminalWindow({ onBackgroundChange }: TerminalProps) {
             spellCheck={false}
           />
         </div>
-
-        <div ref={bottomRef} />
       </div>
     </div>
   )

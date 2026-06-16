@@ -12,6 +12,7 @@ interface WindowProps {
   width: number
   height: number
   zIndex: number
+  isActive?: boolean
   onClose: () => void
   onMinimize: () => void
   onMaximize: () => void
@@ -28,6 +29,7 @@ export function Window({
   width,
   height,
   zIndex,
+  isActive = false,
   onClose,
   onMinimize,
   onMaximize,
@@ -46,8 +48,8 @@ export function Window({
       if (isDragging) {
         // Get viewport dimensions and menu bar height (32px for 8 * 4 h-8)
         const menuBarHeight = 32
-        const taskbarHeight = 48 // h-12
-        const maxY = window.innerHeight - taskbarHeight - 50 // Leave some space above taskbar
+        const taskbarHeight = 72 // dock area
+        const maxY = window.innerHeight - taskbarHeight - 50 // Leave some space above dock
         
         let newX = e.clientX - dragStart.x
         let newY = e.clientY - dragStart.y
@@ -109,48 +111,64 @@ export function Window({
   return (
     <div
       ref={windowRef}
-      className="absolute bg-white rounded-lg shadow-2xl border border-gray-200 overflow-hidden flex flex-col animate-scale-in"
+      className={`absolute bg-white rounded-lg border overflow-hidden flex flex-col animate-scale-in transition-all duration-200 ${
+        isActive 
+          ? 'border-gray-300 shadow-2xl ring-1 ring-black/5' 
+          : 'border-gray-200/80 shadow-lg opacity-98'
+      }`}
       style={{
         left: `${x}px`,
         top: `${y}px`,
         width: `${width}px`,
         height: `${height}px`,
         zIndex,
-        boxShadow: '0 25px 50px -12px rgba(0, 0, 0, 0.15), 0 0 40px rgba(0, 0, 0, 0.08)'
+        boxShadow: isActive 
+          ? '0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 40px rgba(0, 0, 0, 0.12)'
+          : '0 10px 30px -10px rgba(0, 0, 0, 0.15)'
       }}
       onMouseDown={onFocus}
     >
       {/* Title Bar */}
       <div
-        className="bg-gray-100 border-b border-gray-200 px-4 py-3 flex items-center justify-between cursor-move select-none hover:bg-gray-50 transition-all"
+        className={`bg-gray-100 border-b border-gray-200 px-4 py-3 flex items-center justify-between cursor-move select-none transition-all relative ${
+          isActive ? 'bg-gray-50/95' : 'bg-gray-100/70'
+        }`}
         onMouseDown={handleMouseDownTitle}
       >
-        <div className="flex items-center gap-2">
-          <span className="text-sm font-semibold text-black">{title}</span>
-        </div>
-        <div className="flex items-center gap-2">
+        {/* macOS Buttons on Left */}
+        <div className="flex items-center gap-1.5 z-10">
+          <button
+            onClick={onClose}
+            className="w-3.5 h-3.5 rounded-full bg-[#ff5f56] border border-[#e0443e] flex items-center justify-center active:scale-90 transition-all group/btn"
+            aria-label="Close"
+          >
+            <X className="w-2 h-2 text-[#4c0002] opacity-0 group-hover/btn:opacity-100 transition-opacity" />
+          </button>
           <button
             onClick={onMinimize}
-            className="w-5 h-5 rounded-full bg-yellow-500 hover:bg-yellow-400 flex items-center justify-center transition-all hover:shadow-lg hover:shadow-yellow-500/50 active:scale-90"
+            className="w-3.5 h-3.5 rounded-full bg-[#ffbd2e] border border-[#dea123] flex items-center justify-center active:scale-90 transition-all group/btn"
             aria-label="Minimize"
           >
-            <Minus className="w-3 h-3 text-slate-900" />
+            <Minus className="w-2 h-2 text-[#5c3e00] opacity-0 group-hover/btn:opacity-100 transition-opacity" />
           </button>
           <button
             onClick={onMaximize}
-            className="w-5 h-5 rounded-full bg-green-500 hover:bg-green-400 flex items-center justify-center transition-all hover:shadow-lg hover:shadow-green-500/50 active:scale-90"
+            className="w-3.5 h-3.5 rounded-full bg-[#27c93f] border border-[#1a9c2b] flex items-center justify-center active:scale-90 transition-all group/btn"
             aria-label="Maximize"
           >
-            <Maximize2 className="w-3 h-3 text-slate-900" />
-          </button>
-          <button
-            onClick={onClose}
-            className="w-5 h-5 rounded-full bg-red-500 hover:bg-red-400 flex items-center justify-center transition-all hover:shadow-lg hover:shadow-red-500/50 active:scale-90"
-            aria-label="Close"
-          >
-            <X className="w-3 h-3 text-white" />
+            <Maximize2 className="w-2 h-2 text-[#006400] opacity-0 group-hover/btn:opacity-100 transition-opacity" />
           </button>
         </div>
+
+        {/* Centered Title */}
+        <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+          <span className={`text-xs font-bold transition-colors ${isActive ? 'text-gray-800' : 'text-gray-400'}`}>
+            {title}
+          </span>
+        </div>
+
+        {/* Spacer for symmetry */}
+        <div className="w-16"></div>
       </div>
 
       {/* Window Content */}

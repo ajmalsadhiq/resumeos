@@ -71,7 +71,7 @@ const projects: Project[] = [
     tech: ["n8n", "Gemini API", "Qdrant Vector DB", "Python", "Docker"],
     color: "from-teal-600 to-blue-600",
     github: "https://github.com/ajmalsadhiq/RAG-Chatbot-with-n8n-Gemini-Qdrant",
-    image: "/projects/rag-chatbot.jpg",
+    image: "/projects/rag-chatbot.png",
     deployed: "https://github.com/ajmalsadhiq/RAG-Chatbot-with-n8n-Gemini-Qdrant"
   },
   {
@@ -81,7 +81,7 @@ const projects: Project[] = [
     tech: ["Angular 21", "TypeScript", "Tailwind CSS", "RxJS"],
     color: "from-emerald-700 to-yellow-800",
     github: "https://github.com/ajmalsadhiq/mssf-portal",
-    image: "/projects/msspf.jpg",
+    image: "/projects/msspf.png",
     deployed: "https://mssf-portal.vercel.app/"
   },
   {
@@ -91,7 +91,7 @@ const projects: Project[] = [
     tech: ["Python", "MediaPipe", "OpenCV", "PyAutoGUI"],
     color: "from-indigo-600 to-green-600",
     github: "https://github.com/ajmalsadhiq/handgesture-control-mouse",
-    image: "/projects/handgesture.jpg",
+    image: "/projects/handgesture.png",
     deployed: "https://github.com/ajmalsadhiq/handgesture-control-mouse"
   },
   {
@@ -101,7 +101,7 @@ const projects: Project[] = [
     tech: ["Python", "Isolation Forest", "Flask", "Pandas", "Scikit-Learn"],
     color: "from-yellow-500 to-amber-700",
     github: "https://github.com/ajmalsadhiq/energy_wastage_detector",
-    image: "/projects/energy-wastage.jpg",
+    image: "/projects/energy-wastage.png",
     deployed: "https://github.com/ajmalsadhiq/energy_wastage_detector"
   },
   {
@@ -111,7 +111,7 @@ const projects: Project[] = [
     tech: ["HTML5", "CSS3", "JavaScript", "LocalStorage"],
     color: "from-green-500 to-zinc-900",
     github: "https://github.com/ajmalsadhiq/resume-player",
-    image: "/projects/resume-player.jpg",
+    image: "/projects/resume-player.png",
     deployed: "https://resume-player.vercel.app/"
   }
 ];

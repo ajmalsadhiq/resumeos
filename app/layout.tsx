@@ -11,7 +11,7 @@ const _geistMono = V0_Font_Geist_Mono({ subsets: ['latin'], weight: ["100","200"
 const _sourceSerif_4 = V0_Font_Source_Serif_4({ subsets: ['latin'], weight: ["200","300","400","500","600","700","800","900"] })
 
 export const metadata: Metadata = {
-  title: 'OpenHog - OS-Themed Dev Tools',
+  title: "Ajmal Sadhiq's ResumeOS",
   description: 'An OS-themed website template featuring draggable windows and desktop interface',
   generator: 'v0.app',
   icons: {
